@@ -1,8 +1,10 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bmvx6yyjofya0"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bmvx6yyjofya0"]
 
-[ext_resource type="Texture2D" uid="uid://b1e7r7bpwgsfk" path="res://assets/Room_Builder_Walls_16x16.png" id="1_cwx6m"]
-[ext_resource type="Texture2D" uid="uid://bekmy28746vrg" path="res://assets/Room_Builder_Floors_16x16.png" id="2_bvupw"]
-[ext_resource type="Texture2D" uid="uid://s2himrtots06" path="res://assets/Room_Builder_borders_16x16.png" id="3_02hx5"]
+[ext_resource type="Texture2D" uid="uid://b1e7r7bpwgsfk" path="res://assets/environment/Room_Builder_Walls_16x16.png" id="1_cwx6m"]
+[ext_resource type="Texture2D" uid="uid://bekmy28746vrg" path="res://assets/environment/Room_Builder_Floors_16x16.png" id="2_bvupw"]
+[ext_resource type="Texture2D" uid="uid://s2himrtots06" path="res://assets/environment/Room_Builder_borders_16x16.png" id="3_02hx5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_505w2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_almdt"]
 texture = ExtResource("1_cwx6m")
@@ -1652,6 +1654,8 @@ texture = ExtResource("3_02hx5")
 20:8/0 = 0
 
 [resource]
+physics_layer_0/collision_layer = 2
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_505w2")
 sources/0 = SubResource("TileSetAtlasSource_almdt")
 sources/1 = SubResource("TileSetAtlasSource_3r21g")
 sources/2 = SubResource("TileSetAtlasSource_s31jd")

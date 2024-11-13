@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnm782fey7ibe"
-path="res://.godot/imported/test_3x3.png-cd2febcd51cbc0ba20632c9f9d3a8ae0.ctex"
+uid="uid://cv4orrkca5eud"
+path="res://.godot/imported/Room_Builder_Floor_Connectors_16x16.png-f365b20eac9f3b3198f96430ba8dbbac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test_3x3.png"
-dest_files=["res://.godot/imported/test_3x3.png-cd2febcd51cbc0ba20632c9f9d3a8ae0.ctex"]
+source_file="res://assets/environment/Room_Builder_Floor_Connectors_16x16.png"
+dest_files=["res://.godot/imported/Room_Builder_Floor_Connectors_16x16.png-f365b20eac9f3b3198f96430ba8dbbac.ctex"]
 
 [params]
 

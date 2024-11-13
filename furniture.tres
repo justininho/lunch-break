@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bx0q8fkws5ca1"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bx0q8fkws5ca1"]
 
-[ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/Modern_Office_16x16.png" id="1_l2qhk"]
+[ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/environment/Modern_Office_16x16.png" id="1_l2qhk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sonqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r64n6"]
 texture = ExtResource("1_l2qhk")
@@ -657,4 +659,6 @@ texture = ExtResource("1_l2qhk")
 11:2/0 = 0
 
 [resource]
+physics_layer_0/collision_layer = 2
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_sonqb")
 sources/1 = SubResource("TileSetAtlasSource_r64n6")

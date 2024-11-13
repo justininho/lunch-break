@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbbq10x0ce2ln"
-path="res://.godot/imported/Room_Builder_Floor_Paths_16x16.png-d0843292c7105b696652d2200fe9f7bd.ctex"
+uid="uid://empiv76yenol"
+path="res://.godot/imported/animated_door_5_locked.png-881fb1f392706db4931d04c38dc8ca07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Room_Builder_Floor_Paths_16x16.png"
-dest_files=["res://.godot/imported/Room_Builder_Floor_Paths_16x16.png-d0843292c7105b696652d2200fe9f7bd.ctex"]
+source_file="res://assets/objects/animated_door_5_locked.png"
+dest_files=["res://.godot/imported/animated_door_5_locked.png-881fb1f392706db4931d04c38dc8ca07.ctex"]
 
 [params]
 

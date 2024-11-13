@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bekmy28746vrg"
-path="res://.godot/imported/Room_Builder_Floors_16x16.png-d01168ae551b90539e9baa82ccef3183.ctex"
+uid="uid://bg8jlbf0cp4e4"
+path="res://.godot/imported/Modern_Office_16x16.png-aa2202d3d7f20a352ee570093960d195.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Room_Builder_Floors_16x16.png"
-dest_files=["res://.godot/imported/Room_Builder_Floors_16x16.png-d01168ae551b90539e9baa82ccef3183.ctex"]
+source_file="res://assets/environment/Modern_Office_16x16.png"
+dest_files=["res://.godot/imported/Modern_Office_16x16.png-aa2202d3d7f20a352ee570093960d195.ctex"]
 
 [params]
 
