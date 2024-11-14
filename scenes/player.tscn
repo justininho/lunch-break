@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://be0nj0o7fvmkr"]
+[gd_scene load_steps=35 format=3 uid="uid://be0nj0o7fvmkr"]
 
 [ext_resource type="Texture2D" uid="uid://bpu6c2nj3t8tr" path="res://assets/characters/player.png" id="1_4jn5p"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_7fnek"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_7cvim"]
 [ext_resource type="Script" path="res://scripts/player_idle.gd" id="4_om02d"]
 [ext_resource type="Script" path="res://scripts/player_move.gd" id="5_j5uhg"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="6_6svf8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv0de"]
 atlas = ExtResource("1_4jn5p")
@@ -256,9 +257,18 @@ nodes/StateMachine/position = Vector2(620, 200)
 nodes/output/position = Vector2(960, 200)
 node_connections = [&"output", 0, &"StateMachine"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlswx"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rw22g"]
+radius = 13.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
+wall_min_slide_angle = 0.148353
+safe_margin = 0.001
 script = ExtResource("1_7fnek")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -267,12 +277,6 @@ texture = SubResource("AtlasTexture_qv0de")
 hframes = 56
 vframes = 20
 frame = 56
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(2.13163e-14, 5)
-scale = Vector2(0.898438, 0.965909)
-polygon = PackedVector2Array(8, 11, 8, -11, -8, -11, -8, 11)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -299,3 +303,20 @@ script = ExtResource("4_om02d")
 
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource("5_j5uhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_qlswx")
+debug_color = Color(0.88201, 0.333719, 0.0970553, 0.42)
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("6_6svf8")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_rw22g")
+debug_color = Color(0, 0.640612, 0.347252, 0.42)
