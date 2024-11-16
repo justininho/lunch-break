@@ -146,4 +146,3 @@ disabled = true
 debug_color = Color(0.119443, 0.633338, 0.390129, 0.42)
 
 [node name="DoorSfx" type="AudioStreamPlayer2D" parent="."]
-bus = &"Sfx"

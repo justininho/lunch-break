@@ -1,24 +1,26 @@
 extends Node
-class_name Inventory
 
-# The list that will hold all item references
-var items = []
+signal item_added(item: Item)
+signal item_removed(item: Item)
 
-# Add an item to the inventory
-func add_item(item):
-		items.append(item)
-		print("Item added: ", item)
+var items = {}
 
-# Remove an item from the inventory (by reference or index)
-func remove_item(item):
-		if item in items:
-				items.erase(item)
-				print("Item removed: ", item)
+func add_item(item: Item):
+		var item_copy = item.duplicate()
+		items[item.id] = item_copy
+		item_added.emit(item_copy)
+
+func remove_item(item: Item):
+		items.erase(item.id)
+		item_removed.emit(item.id)
 
 # Check if an item is in the inventory
-func has_item(item) -> bool:
-		return item in items
+func has_item(item_id: int) -> bool:
+		return items.has(item_id)
 
 # Get all items in the inventory
 func get_items() -> Array:
-		return items
+		return items.values()
+		
+func get_item(item_id: int) -> Item:
+	return items.get(item_id, null)

@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cbhu8ka5rsdhv"]
+[gd_scene load_steps=6 format=4 uid="uid://covwp7i4y3v2o"]
 
 [ext_resource type="TileSet" uid="uid://bg5gn1cu2y3xt" path="res://office_terrain.tres" id="1_gyv18"]
 [ext_resource type="PackedScene" uid="uid://bllvvgh7vncxc" path="res://scenes/door.tscn" id="4_dwgxy"]
-[ext_resource type="PackedScene" uid="uid://be0nj0o7fvmkr" path="res://scenes/player.tscn" id="4_p33g8"]
 [ext_resource type="TileSet" uid="uid://dwsy62yjpyqb3" path="res://scenes/env_tileset.tres" id="5_5d7s8"]
-[ext_resource type="PackedScene" uid="uid://c1i0s4m46s57s" path="res://scenes/key.tscn" id="5_lfhse"]
+[ext_resource type="PackedScene" uid="uid://c1i0s4m46s57s" path="res://scenes/items/key.tscn" id="5_lfhse"]
+[ext_resource type="PackedScene" uid="uid://be0nj0o7fvmkr" path="res://scenes/player.tscn" id="5_lk1ri"]
 
 [node name="Prototype" type="Node2D"]
 
@@ -23,15 +23,15 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAJAAAAAQAJAA4AAAAJAAEAAQAJAA8AAAAKAAAAAQAKAA4AAAAKAAEAAQAKAA8AAAANAAAAAQAIAAoAAAANAAEAAQAIAAsAAAAOAAAAAQACAAwAAAAOAAEAAQACAA0AAAA=")
 tile_set = ExtResource("5_5d7s8")
 
-[node name="Door" parent="." instance=ExtResource("4_dwgxy")]
-position = Vector2(188, 92)
-
-[node name="Player" parent="." instance=ExtResource("4_p33g8")]
-position = Vector2(193, 141)
-speed = 150.0
-
 [node name="Key" parent="." instance=ExtResource("5_lfhse")]
 position = Vector2(84, 117)
+unlock_id = 1
 
-[connection signal="interact" from="Player" to="Door" method="_on_player_interact"]
-[connection signal="interact" from="Player" to="Key" method="_on_player_interact"]
+[node name="Player" parent="." instance=ExtResource("5_lk1ri")]
+unique_name_in_owner = true
+position = Vector2(194, 140)
+speed = 150.0
+
+[node name="Door" parent="." groups=["unlockable"] instance=ExtResource("4_dwgxy")]
+position = Vector2(188, 92)
+unlock_id = 1

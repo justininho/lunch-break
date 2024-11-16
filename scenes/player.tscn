@@ -1,11 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://be0nj0o7fvmkr"]
+[gd_scene load_steps=34 format=3 uid="uid://be0nj0o7fvmkr"]
 
 [ext_resource type="Texture2D" uid="uid://bpu6c2nj3t8tr" path="res://assets/characters/player.png" id="1_4jn5p"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_7fnek"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_7cvim"]
 [ext_resource type="Script" path="res://scripts/player_idle.gd" id="4_om02d"]
 [ext_resource type="Script" path="res://scripts/player_move.gd" id="5_j5uhg"]
-[ext_resource type="Script" path="res://scripts/inventory.gd" id="6_6svf8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv0de"]
 atlas = ExtResource("1_4jn5p")
@@ -270,6 +269,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.148353
 safe_margin = 0.001
 script = ExtResource("1_7fnek")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -308,9 +308,6 @@ script = ExtResource("5_j5uhg")
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_qlswx")
 debug_color = Color(0.88201, 0.333719, 0.0970553, 0.42)
-
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("6_6svf8")
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_layer = 4

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="lunch break"
-run/main_scene="res://scenes/prototype.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+Global="*res://scripts/global.gd"
+Inventory="*res://scripts/inventory.gd"
 
 [display]
 
@@ -31,7 +33,8 @@ enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg")
 [global_group]
 
 interactable="objects that are interactable"
-collectible="objects player can pickup"
+unlockable=""
+pickup="objects player can pickup"
 
 [input]
 
@@ -65,7 +68,8 @@ interact={
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="environment"
-2d_physics/layer_3="interactable"
+2d_physics/snap/snap_2d_transforms_to_pixel=false
+2d_physics/snap/snap_2d_vertices_to_pixel=false
 
 [rendering]
 

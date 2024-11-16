@@ -1,8 +1,6 @@
 extends State
 class_name Player_Move
 
-#@export var speed = 200.0
-#@export var acceleration := 1200.0
 @export var player : Player
 @onready var animation_tree: AnimationTree = $"../../AnimationTree"
 
