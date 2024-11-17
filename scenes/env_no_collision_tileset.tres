@@ -1,14 +1,14 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://dwsy62yjpyqb3"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://crwhsq62dol4e"]
 
-[ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/environment/Modern_Office_16x16.png" id="1_16wob"]
-[ext_resource type="Texture2D" uid="uid://s2himrtots06" path="res://assets/environment/Room_Builder_borders_16x16.png" id="2_v2awm"]
-[ext_resource type="Texture2D" uid="uid://bekmy28746vrg" path="res://assets/environment/Room_Builder_Floors_16x16.png" id="3_id5wm"]
-[ext_resource type="Texture2D" uid="uid://b1e7r7bpwgsfk" path="res://assets/environment/Room_Builder_Walls_16x16.png" id="4_ujdyc"]
+[ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/environment/Modern_Office_16x16.png" id="1_ahcg1"]
+[ext_resource type="Texture2D" uid="uid://s2himrtots06" path="res://assets/environment/Room_Builder_borders_16x16.png" id="2_dlhex"]
+[ext_resource type="Texture2D" uid="uid://bekmy28746vrg" path="res://assets/environment/Room_Builder_Floors_16x16.png" id="3_iusaa"]
+[ext_resource type="Texture2D" uid="uid://b1e7r7bpwgsfk" path="res://assets/environment/Room_Builder_Walls_16x16.png" id="4_8sjub"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nu1cx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6s8fg"]
-texture = ExtResource("1_16wob")
+texture = ExtResource("1_ahcg1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -662,7 +662,7 @@ texture = ExtResource("1_16wob")
 2:51/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_744qo"]
-texture = ExtResource("2_v2awm")
+texture = ExtResource("2_dlhex")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -935,7 +935,7 @@ texture = ExtResource("2_v2awm")
 20:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mw8fl"]
-texture = ExtResource("3_id5wm")
+texture = ExtResource("3_iusaa")
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
@@ -1370,7 +1370,7 @@ texture = ExtResource("3_id5wm")
 14:37/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_asujj"]
-texture = ExtResource("4_ujdyc")
+texture = ExtResource("4_8sjub")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

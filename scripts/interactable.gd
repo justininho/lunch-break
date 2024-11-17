@@ -1,4 +1,4 @@
-extends Area2D
+extends Entity
 class_name Interactable
 
 func interact() -> void:

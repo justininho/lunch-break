@@ -34,7 +34,13 @@ enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg")
 
 interactable="objects that are interactable"
 unlockable=""
-pickup="objects player can pickup"
+collectible=""
+examinable=""
+examine_ui=""
+
+[gui]
+
+theme/custom="res://theme/lunch_break_theme.tres"
 
 [input]
 
@@ -68,6 +74,7 @@ interact={
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="environment"
+2d_physics/layer_3="entity"
 2d_physics/snap/snap_2d_transforms_to_pixel=false
 2d_physics/snap/snap_2d_vertices_to_pixel=false
 

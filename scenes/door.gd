@@ -6,9 +6,22 @@ class_name Door
 @onready var open_collision: CollisionShape2D = $StaticBody2D/OpenCollision
 @onready var close_collision: CollisionShape2D = $StaticBody2D/CloseCollision
 
-func interact() -> void:
-	try_open()
+func _ready() -> void:
+	if locked == true:
+		animated_sprite_2d.animation = "closed"
+		close_collision.disabled = false
+		open_collision.disabled = true
+	else:
+		animated_sprite_2d.animation = "open"
+		close_collision.disabled = true
+		open_collision.disabled = false
 		
+	animated_sprite_2d.play()
+	
+func interact() -> void:
+	unlock()
+	try_open()
+
 func try_open() -> void:
 	var anim = animated_sprite_2d.animation
 	if anim == "open":

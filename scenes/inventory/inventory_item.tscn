@@ -17,13 +17,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l84l2")
 
-[node name="ItemBox" type="TextureRect" parent="."]
+[node name="box" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AtlasTexture_lv38i")
 stretch_mode = 2
 
-[node name="ItemTexture" type="TextureRect" parent="."]
+[node name="texture" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("ImageTexture_rpv3n")

@@ -13,14 +13,10 @@ func add_item(item: Item) -> void:
 	inv_item.setup(item)
 	h_box_container.add_child(inv_item)
 	
-func remove_item(item_id: int) -> void:
+func remove_item(id: int) -> void:
 	var inv_items = h_box_container.get_children()
 	
 	for inv_item in inv_items:
-		if inv_item.item_id == item_id:
+		if inv_item.item.id == id:
 			h_box_container.remove_child(inv_item)
 			inv_item.queue_free()
-		#print('inv_item: ', inv_item)
-		#if not is_instance_valid(inv_item.item):
-			#print('invalid')
-			

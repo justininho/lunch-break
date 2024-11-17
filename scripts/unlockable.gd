@@ -1,8 +1,11 @@
 extends Interactable
 class_name Unlockable
 
-@export var unlock_id: int
+@export var unlock_id := 0
 var locked := true
+
+func interact() -> void:
+	unlock()
 
 func unlock() -> void:
 	if locked == false:

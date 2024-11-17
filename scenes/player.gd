@@ -4,7 +4,8 @@ class_name Player
 @export var speed := 300.0
 @export var acceleration := 1200.0
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var interact_area: Area2D = $InteractArea
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var player_entity: Entity = %PlayerEntity
 
 signal interact
 
@@ -13,15 +14,12 @@ func _input(event: InputEvent) -> void:
 		_on_player_interact()
 
 func _on_player_interact() -> void:
-	# Get overlapping areas (assuming there is an Area2D or a CollisionShape2D called "InteractArea" on your player)
-	for obj in interact_area.get_overlapping_areas():
-		if obj.is_in_group("collectible"):
-			obj.collect()
-		if obj.is_in_group("unlockable"):
-			obj.unlock()
-		if obj.is_in_group("interactable"):
-			obj.interact()
-			
+	for entity in player_entity.get_overlapping_areas():
+		if entity is Collectible:
+			animation_tree["parameters/PickupOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		if entity is Interactable:
+			entity.interact()
+		
 func has_direction() -> bool:
 	return get_direction() != Vector2.ZERO
 	
@@ -36,7 +34,3 @@ func get_direction() -> Vector2:
 	if Input.is_action_pressed("move_up"):
 			direction.y -= 1
 	return direction
-
-
-func _on_inventory_updated(items: Array) -> void:
-	pass # Replace with function body.

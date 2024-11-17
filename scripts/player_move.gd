@@ -2,7 +2,7 @@ extends State
 class_name Player_Move
 
 @export var player : Player
-@onready var animation_tree: AnimationTree = $"../../AnimationTree"
+@onready var animation_tree: AnimationTree = %AnimationTree
 
 func update(_delta: float) -> void:
 	if !player.has_direction():
@@ -33,3 +33,4 @@ func move(delta: float) -> void:
 func set_blend_positions(direction: Vector2):
 	animation_tree["parameters/StateMachine/idle/blend_position"] = direction
 	animation_tree["parameters/StateMachine/move/blend_position"] = direction
+	animation_tree["parameters/Pickup/blend_position"] = direction

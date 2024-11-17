@@ -1,16 +1,8 @@
-extends Collectible
+extends Node2D
 class_name Item
 
 var id: int
+@export var inventory_texture : Texture2D
 
-func _init(): 
+func _init():
 	id = Global.generate_unique_id()
-		
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

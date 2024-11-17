@@ -1,7 +1,7 @@
 extends Node
 
-var global_item_id = 0
+var global_id = 0
 
 func generate_unique_id():
-		global_item_id += 1
-		return global_item_id
+		global_id += 1
+		return global_id

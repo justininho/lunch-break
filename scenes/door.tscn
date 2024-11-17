@@ -104,13 +104,14 @@ size = Vector2(22.0469, 11.3137)
 size = Vector2(22.0529, 18.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4lww"]
-size = Vector2(6.2675, 27.1352)
+size = Vector2(5.71715, 18.5543)
 
-[node name="Door" type="Area2D" groups=["interactable"]]
+[node name="Door" type="Area2D" groups=["interactable", "unlockable"]]
 position = Vector2(2.42591, -11.5491)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_k6vcd")
+unlock_id = 1
 metadata/locked = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -121,6 +122,7 @@ sprite_frames = SubResource("SpriteFrames_tf874")
 animation = &"opening"
 
 [node name="WhiteDoorTrim" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(10.5342, -4)
 scale = Vector2(1.37928, 1)
@@ -140,9 +142,10 @@ shape = SubResource("RectangleShape2D_868rm")
 debug_color = Color(0.943504, 0.135507, 0.493127, 0.42)
 
 [node name="OpenCollision" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-20.034, 19.0252)
+position = Vector2(-20.3092, 14.7347)
 shape = SubResource("RectangleShape2D_l4lww")
 disabled = true
 debug_color = Color(0.119443, 0.633338, 0.390129, 0.42)
 
 [node name="DoorSfx" type="AudioStreamPlayer2D" parent="."]
+volume_db = -30.0

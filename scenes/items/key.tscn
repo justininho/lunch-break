@@ -1,24 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1i0s4m46s57s"]
+[gd_scene load_steps=5 format=3 uid="uid://c1i0s4m46s57s"]
 
+[ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ax0kx"]
 [ext_resource type="Texture2D" uid="uid://ohv1x3cnu3qo" path="res://assets/objects/key.png" id="1_cchk0"]
 [ext_resource type="Script" path="res://scenes/items/key.gd" id="1_ttqpp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pl7s0"]
 radius = 10.1658
 
-[node name="Key" type="Area2D" groups=["collectible", "interactable"]]
-position = Vector2(-7.67882, 2.43475)
+[node name="Key" type="Area2D" node_paths=PackedStringArray("item") groups=["collectible"]]
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_ttqpp")
-metadata/_edit_group_ = true
+script = ExtResource("1_ax0kx")
+item = NodePath("Item")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(27.2845, 11.7135)
 shape = SubResource("CircleShape2D_pl7s0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(27.2036, 11.7055)
 texture = ExtResource("1_cchk0")
+
+[node name="Item" type="Node2D" parent="."]
+script = ExtResource("1_ttqpp")
+unlock_id = 1
+inventory_texture = ExtResource("1_cchk0")

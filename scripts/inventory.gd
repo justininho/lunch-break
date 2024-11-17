@@ -12,6 +12,7 @@ func add_item(item: Item):
 
 func remove_item(item: Item):
 		items.erase(item.id)
+		print('items after erase: ', get_items())
 		item_removed.emit(item.id)
 
 # Check if an item is in the inventory

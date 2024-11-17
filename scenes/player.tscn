@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://be0nj0o7fvmkr"]
+[gd_scene load_steps=45 format=3 uid="uid://be0nj0o7fvmkr"]
 
 [ext_resource type="Texture2D" uid="uid://bpu6c2nj3t8tr" path="res://assets/characters/player.png" id="1_4jn5p"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_7fnek"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_7cvim"]
 [ext_resource type="Script" path="res://scripts/player_idle.gd" id="4_om02d"]
 [ext_resource type="Script" path="res://scripts/player_move.gd" id="5_j5uhg"]
+[ext_resource type="Script" path="res://scripts/entity.gd" id="6_h3hm8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv0de"]
 atlas = ExtResource("1_4jn5p")
@@ -169,6 +170,74 @@ tracks/0/keys = {
 "values": [Vector2i(6, 2), Vector2i(7, 2), Vector2i(8, 2), Vector2i(9, 2), Vector2i(10, 2), Vector2i(11, 2)]
 }
 
+[sub_resource type="Animation" id="Animation_d1hdl"]
+resource_name = "pickup_right"
+length = 0.650005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 11), Vector2i(1, 11), Vector2i(2, 11), Vector2i(3, 11), Vector2i(4, 11), Vector2i(5, 11), Vector2i(6, 11), Vector2i(7, 11), Vector2i(8, 11), Vector2i(9, 11), Vector2i(10, 11), Vector2i(11, 11), Vector2i(12, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_6th0i"]
+resource_name = "pickup_up"
+length = 1.08334
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(14, 11), Vector2i(15, 11), Vector2i(16, 11), Vector2i(17, 11), Vector2i(18, 11), Vector2i(19, 11), Vector2i(20, 11), Vector2i(21, 11), Vector2i(22, 11), Vector2i(23, 11), Vector2i(24, 11), Vector2i(25, 11), Vector2i(27, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_0pes5"]
+resource_name = "pickup_left"
+length = 0.650005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(28, 11), Vector2i(29, 11), Vector2i(30, 11), Vector2i(31, 11), Vector2i(32, 11), Vector2i(33, 11), Vector2i(34, 11), Vector2i(35, 11), Vector2i(36, 11), Vector2i(37, 11), Vector2i(38, 11), Vector2i(39, 11), Vector2i(41, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_xs1jf"]
+resource_name = "pickup_down"
+length = 0.650005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(42, 11), Vector2i(43, 11), Vector2i(44, 11), Vector2i(45, 11), Vector2i(46, 11), Vector2i(47, 11), Vector2i(48, 11), Vector2i(49, 11), Vector2i(50, 11), Vector2i(51, 11), Vector2i(52, 11), Vector2i(53, 11), Vector2i(54, 11)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5aoj0"]
 _data = {
 "RESET": SubResource("Animation_y5exe"),
@@ -179,8 +248,37 @@ _data = {
 "move_down": SubResource("Animation_keqhe"),
 "move_left": SubResource("Animation_psuqf"),
 "move_right": SubResource("Animation_8o8jp"),
-"move_up": SubResource("Animation_orckj")
+"move_up": SubResource("Animation_orckj"),
+"pickup_down": SubResource("Animation_xs1jf"),
+"pickup_left": SubResource("Animation_0pes5"),
+"pickup_right": SubResource("Animation_d1hdl"),
+"pickup_up": SubResource("Animation_6th0i")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tl8pj"]
+animation = &"pickup_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ccniu"]
+animation = &"pickup_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bgj5o"]
+animation = &"pickup_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6uq0t"]
+animation = &"pickup_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_nmk5e"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_tl8pj")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ccniu")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_bgj5o")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_6uq0t")
+blend_point_3/pos = Vector2(1, 0)
+snap = Vector2(1, 1)
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_u1kyv"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a8bqu"]
 animation = &"idle_down"
@@ -250,11 +348,15 @@ states/move/position = Vector2(412, 230)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_esj6f"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_sjn56"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_s3tc3")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s7it0"]
-graph_offset = Vector2(-210.249, -45.1382)
+graph_offset = Vector2(-13.6475, 153.457)
+nodes/Pickup/node = SubResource("AnimationNodeBlendSpace2D_nmk5e")
+nodes/Pickup/position = Vector2(600, 400)
+nodes/PickupOneShot/node = SubResource("AnimationNodeOneShot_u1kyv")
+nodes/PickupOneShot/position = Vector2(920, 360)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_kyqnx")
-nodes/StateMachine/position = Vector2(620, 200)
-nodes/output/position = Vector2(960, 200)
-node_connections = [&"output", 0, &"StateMachine"]
+nodes/StateMachine/position = Vector2(600, 180)
+nodes/output/position = Vector2(1260, 340)
+node_connections = [&"PickupOneShot", 0, &"StateMachine", &"PickupOneShot", 1, &"Pickup", &"output", 0, &"PickupOneShot"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlswx"]
 radius = 7.0
@@ -266,9 +368,9 @@ radius = 13.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
-wall_min_slide_angle = 0.148353
-safe_margin = 0.001
 script = ExtResource("1_7fnek")
+speed = 250.0
+acceleration = 750.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -278,18 +380,22 @@ hframes = 56
 vframes = 20
 frame = 56
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_5aoj0")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeBlendTree_s7it0")
 advance_expression_base_node = NodePath("../StateMachine")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Pickup/blend_position = Vector2(0, 0)
+parameters/PickupOneShot/active = false
+parameters/PickupOneShot/internal_active = false
+parameters/PickupOneShot/request = 0
 parameters/StateMachine/idle/blend_position = Vector2(0, 0)
 parameters/StateMachine/move/blend_position = Vector2(0, 0)
 
@@ -309,11 +415,13 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_qlswx")
 debug_color = Color(0.88201, 0.333719, 0.0970553, 0.42)
 
-[node name="InteractArea" type="Area2D" parent="."]
+[node name="PlayerEntity" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("6_h3hm8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerEntity"]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_rw22g")
 debug_color = Color(0, 0.640612, 0.347252, 0.42)
