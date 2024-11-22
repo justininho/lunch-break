@@ -5,14 +5,13 @@ class_name Examinable
 var examine_ui : Examine_UI
 
 func _ready() -> void:
+	super._ready()
 	assert(examine_text != null, "Examine Text is null")
 	examine_ui = get_node("/root/Game/HUD/ExamineUI")
 	assert(examine_ui != null, "Examine UI is null")
-
-	connect("area_exited", _on_area_exited)
-
-func interact() -> void:
-	examine()
+	connect("interaction_triggered", examine)
+	connect("interaction_area_exited", close_examine)
+	#connect("area_exited", _on_area_exited)
 
 func examine() -> void:
 	if examine_ui.visible != true:
@@ -20,6 +19,6 @@ func examine() -> void:
 	else:
 		examine_ui.hide_text()
 				
-func _on_area_exited(area: Node) -> void:
+func close_examine(area: Node) -> void:
 	if area.name == "PlayerEntity":
 		examine_ui.hide_text()

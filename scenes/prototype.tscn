@@ -1,11 +1,25 @@
-[gd_scene load_steps=7 format=4 uid="uid://covwp7i4y3v2o"]
+[gd_scene load_steps=11 format=4 uid="uid://covwp7i4y3v2o"]
 
-[ext_resource type="TileSet" uid="uid://crwhsq62dol4e" path="res://scenes/env_no_collision_tileset.tres" id="2_yuakl"]
+[ext_resource type="TileSet" uid="uid://crwhsq62dol4e" path="res://resources/env_no_collision_tileset.tres" id="2_yuakl"]
 [ext_resource type="PackedScene" uid="uid://bllvvgh7vncxc" path="res://scenes/door.tscn" id="4_dwgxy"]
-[ext_resource type="TileSet" uid="uid://dwsy62yjpyqb3" path="res://scenes/env_tileset.tres" id="5_5d7s8"]
-[ext_resource type="PackedScene" uid="uid://c1i0s4m46s57s" path="res://scenes/items/key.tscn" id="5_lfhse"]
+[ext_resource type="TileSet" uid="uid://dwsy62yjpyqb3" path="res://resources/env_tileset.tres" id="5_5d7s8"]
+[ext_resource type="PackedScene" uid="uid://c1i0s4m46s57s" path="res://scenes/golden_key.tscn" id="5_lfhse"]
 [ext_resource type="PackedScene" uid="uid://be0nj0o7fvmkr" path="res://scenes/player.tscn" id="5_lk1ri"]
-[ext_resource type="PackedScene" uid="uid://6g20cm7mbgmx" path="res://scenes/objects/art.tscn" id="6_medmo"]
+[ext_resource type="PackedScene" uid="uid://6g20cm7mbgmx" path="res://scenes/art.tscn" id="6_medmo"]
+[ext_resource type="Script" path="res://resources/interaction_state.gd" id="6_wvajd"]
+[ext_resource type="Material" uid="uid://btkdbrbftd0xt" path="res://resources/interactable_material.tres" id="6_xd0d3"]
+
+[sub_resource type="Resource" id="Resource_676ml"]
+script = ExtResource("6_wvajd")
+can_interact = true
+interaction_prompt = "Press E to interact"
+highlight_material = ExtResource("6_xd0d3")
+
+[sub_resource type="Resource" id="Resource_36s7w"]
+script = ExtResource("6_wvajd")
+can_interact = true
+interaction_prompt = "Press E to interact"
+highlight_material = ExtResource("6_xd0d3")
 
 [node name="Prototype" type="Node2D"]
 
@@ -20,12 +34,14 @@ tile_set = ExtResource("2_yuakl")
 
 [node name="Art" parent="." instance=ExtResource("6_medmo")]
 position = Vector2(56, 18)
+interaction_state = SubResource("Resource_676ml")
 
 [node name="Door" parent="." instance=ExtResource("4_dwgxy")]
 position = Vector2(187, 92)
 
 [node name="Key" parent="." instance=ExtResource("5_lfhse")]
 position = Vector2(82, 117)
+interaction_state = SubResource("Resource_36s7w")
 
 [node name="Player" parent="." instance=ExtResource("5_lk1ri")]
 unique_name_in_owner = true

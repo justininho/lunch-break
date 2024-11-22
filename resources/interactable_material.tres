@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://btkdbrbftd0xt"]
+
+[ext_resource type="Shader" path="res://resources/select.gdshader" id="1_v6d1j"]
+
+[resource]
+shader = ExtResource("1_v6d1j")
+shader_parameter/size_effect = 0.1
+shader_parameter/speed = 0.5
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = true

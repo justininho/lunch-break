@@ -1,10 +1,10 @@
 [gd_scene load_steps=45 format=3 uid="uid://be0nj0o7fvmkr"]
 
-[ext_resource type="Texture2D" uid="uid://bpu6c2nj3t8tr" path="res://assets/characters/player.png" id="1_4jn5p"]
+[ext_resource type="Texture2D" uid="uid://bpu6c2nj3t8tr" path="res://assets/player.png" id="1_4jn5p"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_7fnek"]
-[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_7cvim"]
-[ext_resource type="Script" path="res://scripts/player_idle.gd" id="4_om02d"]
-[ext_resource type="Script" path="res://scripts/player_move.gd" id="5_j5uhg"]
+[ext_resource type="Script" path="res://nodes/state_machine.gd" id="3_7cvim"]
+[ext_resource type="Script" path="res://nodes/player_idle.gd" id="4_om02d"]
+[ext_resource type="Script" path="res://nodes/player_move.gd" id="5_j5uhg"]
 [ext_resource type="Script" path="res://scripts/entity.gd" id="6_h3hm8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv0de"]
@@ -170,6 +170,40 @@ tracks/0/keys = {
 "values": [Vector2i(6, 2), Vector2i(7, 2), Vector2i(8, 2), Vector2i(9, 2), Vector2i(10, 2), Vector2i(11, 2)]
 }
 
+[sub_resource type="Animation" id="Animation_xs1jf"]
+resource_name = "pickup_down"
+length = 0.650005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(42, 11), Vector2i(43, 11), Vector2i(44, 11), Vector2i(45, 11), Vector2i(46, 11), Vector2i(47, 11), Vector2i(48, 11), Vector2i(49, 11), Vector2i(50, 11), Vector2i(51, 11), Vector2i(52, 11), Vector2i(53, 11), Vector2i(54, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_0pes5"]
+resource_name = "pickup_left"
+length = 0.650005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(28, 11), Vector2i(29, 11), Vector2i(30, 11), Vector2i(31, 11), Vector2i(32, 11), Vector2i(33, 11), Vector2i(34, 11), Vector2i(35, 11), Vector2i(36, 11), Vector2i(37, 11), Vector2i(38, 11), Vector2i(39, 11), Vector2i(41, 11)]
+}
+
 [sub_resource type="Animation" id="Animation_d1hdl"]
 resource_name = "pickup_right"
 length = 0.650005
@@ -202,40 +236,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(14, 11), Vector2i(15, 11), Vector2i(16, 11), Vector2i(17, 11), Vector2i(18, 11), Vector2i(19, 11), Vector2i(20, 11), Vector2i(21, 11), Vector2i(22, 11), Vector2i(23, 11), Vector2i(24, 11), Vector2i(25, 11), Vector2i(27, 11)]
-}
-
-[sub_resource type="Animation" id="Animation_0pes5"]
-resource_name = "pickup_left"
-length = 0.650005
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(28, 11), Vector2i(29, 11), Vector2i(30, 11), Vector2i(31, 11), Vector2i(32, 11), Vector2i(33, 11), Vector2i(34, 11), Vector2i(35, 11), Vector2i(36, 11), Vector2i(37, 11), Vector2i(38, 11), Vector2i(39, 11), Vector2i(41, 11)]
-}
-
-[sub_resource type="Animation" id="Animation_xs1jf"]
-resource_name = "pickup_down"
-length = 0.650005
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(42, 11), Vector2i(43, 11), Vector2i(44, 11), Vector2i(45, 11), Vector2i(46, 11), Vector2i(47, 11), Vector2i(48, 11), Vector2i(49, 11), Vector2i(50, 11), Vector2i(51, 11), Vector2i(52, 11), Vector2i(53, 11), Vector2i(54, 11)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5aoj0"]
