@@ -19,6 +19,7 @@ func _on_unlocked() -> void:
 	open_collision.disabled = false
 	close_collision.disabled = true
 	door_sfx.play()
+	interaction_area.interaction_state.can_interact = false
 	
 func _on_locked() -> void:
 	animated_sprite_2d.play("locked")

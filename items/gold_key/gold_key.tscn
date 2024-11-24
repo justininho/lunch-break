@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://interaction/interaction_area.gd" id="2_5jyok"]
 [ext_resource type="Script" path="res://items/gold_key/gold_key.gd" id="2_fi203"]
 [ext_resource type="Texture2D" uid="uid://ohv1x3cnu3qo" path="res://assets/key.png" id="2_pe83m"]
-[ext_resource type="Script" path="res://interaction/features/pickup_state.gd" id="3_dh54j"]
+[ext_resource type="Script" path="res://interaction/features/pickup/pickup_state.gd" id="3_dh54j"]
 [ext_resource type="Resource" uid="uid://cmutqy74rh56l" path="res://items/gold_key/gold_key.tres" id="3_uqq6q"]
-[ext_resource type="Material" uid="uid://btkdbrbftd0xt" path="res://resources/interactable_material.tres" id="5_nbyqq"]
-[ext_resource type="PackedScene" uid="uid://nfetovgcbkah" path="res://interaction/features/pickup.tscn" id="6_xhu4g"]
+[ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://interaction/interact_material.tres" id="5_0y1e4"]
+[ext_resource type="PackedScene" uid="uid://nfetovgcbkah" path="res://interaction/features/pickup/pickup.tscn" id="6_xhu4g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pl7s0"]
 radius = 10.1658
@@ -17,11 +17,10 @@ taken = false
 item = ExtResource("3_uqq6q")
 can_interact = true
 interaction_prompt = "Press E to interact"
-highlight_material = ExtResource("5_nbyqq")
+highlight_material = ExtResource("5_0y1e4")
 
 [node name="GoldKey" type="Sprite2D"]
 texture_filter = 1
-use_parent_material = true
 texture = ExtResource("2_pe83m")
 script = ExtResource("2_fi203")
 

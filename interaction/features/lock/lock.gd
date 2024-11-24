@@ -12,7 +12,7 @@ func try_unlock() -> void:
 		
 	if Inventory.has_item(lock_state.item.item_name): 
 		lock_state.is_locked = false
-		lock_state.can_interact = false
+		#lock_state.can_interact = false
 		Inventory.remove_item(lock_state.item)
 		#remove_interact_material()
 		#_on_unlocked() 
