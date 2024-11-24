@@ -24,7 +24,8 @@ buses/default_bus_layout="res://resources/default_bus_layout.tres"
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 Global="*res://scripts/global.gd"
-Inventory="*res://scripts/inventory.gd"
+Inventory="*res://scenes/inventory/inventory.gd"
+InteractionManager="*res://interaction/interaction_manager.tscn"
 
 [display]
 
@@ -41,6 +42,7 @@ unlockable=""
 collectible=""
 examinable=""
 examine_ui=""
+player=""
 
 [gui]
 
@@ -78,7 +80,8 @@ interact={
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="environment"
-2d_physics/layer_3="entity"
+2d_physics/layer_3="interaction"
+2d_physics/layer_4="player interaction"
 2d_physics/snap/snap_2d_transforms_to_pixel=false
 2d_physics/snap/snap_2d_vertices_to_pixel=false
 

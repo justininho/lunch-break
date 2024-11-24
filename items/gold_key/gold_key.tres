@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Key" load_steps=3 format=3 uid="uid://cmutqy74rh56l"]
+
+[ext_resource type="Texture2D" uid="uid://ohv1x3cnu3qo" path="res://assets/key.png" id="1_n7bhm"]
+[ext_resource type="Script" path="res://items/key.gd" id="2_ffkl2"]
+
+[resource]
+script = ExtResource("2_ffkl2")
+item_name = "Gold Key"
+inventory_texture = ExtResource("1_n7bhm")

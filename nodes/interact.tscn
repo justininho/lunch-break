@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://df1x1tp2023cg"]
+[gd_scene load_steps=5 format=3 uid="uid://cbwvbntiuupqq"]
 
 [ext_resource type="Shader" path="res://resources/select.gdshader" id="1_5f4mb"]
-[ext_resource type="Script" path="res://scripts/interact_node.gd" id="2_582t7"]
 [ext_resource type="Texture2D" uid="uid://bj20xaf2r2y4l" path="res://assets/Modern_UI_Style_2.png" id="3_txat4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1t3q"]
@@ -19,7 +18,6 @@ region = Rect2(160, 288, 32, 32)
 [node name="Interact" type="Node2D"]
 material = SubResource("ShaderMaterial_q1t3q")
 position = Vector2(-15, 0)
-script = ExtResource("2_582t7")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 visible = false

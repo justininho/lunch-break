@@ -1,11 +1,18 @@
-extends Lockable
+#extends Lockable
+extends Node2D
 class_name Door
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var door_sfx: AudioStreamPlayer2D = $DoorSfx
-@onready var open_collision: CollisionShape2D = $StaticBody2D/OpenCollision
-@onready var close_collision: CollisionShape2D = $StaticBody2D/CloseCollision
-	
+@onready var close_collision: CollisionShape2D = $CloseCollision
+@onready var open_collision: CollisionShape2D = $OpenCollision
+
+@onready var interaction_area: InteractionArea = $InteractionArea
+@onready var lock: Lock = $Lock
+
+func _on_interaction_area_interact() -> void:
+	lock.try_unlock()
+
 func _on_unlocked() -> void:
 	animated_sprite_2d.play("open")
 	door_sfx.stream = preload("res://assets/door_open.ogg")

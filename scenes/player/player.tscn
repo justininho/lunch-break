@@ -1,11 +1,11 @@
 [gd_scene load_steps=45 format=3 uid="uid://be0nj0o7fvmkr"]
 
 [ext_resource type="Texture2D" uid="uid://bpu6c2nj3t8tr" path="res://assets/player.png" id="1_4jn5p"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_7fnek"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7fnek"]
 [ext_resource type="Script" path="res://nodes/state_machine.gd" id="3_7cvim"]
 [ext_resource type="Script" path="res://nodes/player_idle.gd" id="4_om02d"]
 [ext_resource type="Script" path="res://nodes/player_move.gd" id="5_j5uhg"]
-[ext_resource type="Script" path="res://scripts/entity.gd" id="6_h3hm8"]
+[ext_resource type="Script" path="res://interaction/interaction_area.gd" id="6_3q7ev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv0de"]
 atlas = ExtResource("1_4jn5p")
@@ -362,16 +362,15 @@ node_connections = [&"PickupOneShot", 0, &"StateMachine", &"PickupOneShot", 1, &
 radius = 7.0
 height = 24.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rw22g"]
-radius = 13.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_prj7g"]
+radius = 17.4642
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_7fnek")
 speed = 250.0
 acceleration = 750.0
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -415,13 +414,11 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_qlswx")
 debug_color = Color(0.88201, 0.333719, 0.0970553, 0.42)
 
-[node name="PlayerEntity" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("6_h3hm8")
+[node name="Interaction" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("6_3q7ev")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerEntity"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
 position = Vector2(0, 5)
-shape = SubResource("CircleShape2D_rw22g")
-debug_color = Color(0, 0.640612, 0.347252, 0.42)
+shape = SubResource("CircleShape2D_prj7g")

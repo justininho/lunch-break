@@ -2,7 +2,7 @@ extends GridContainer
 class_name Inventory_Hud
 
 @onready var h_box_container: HBoxContainer = $MarginContainer/HBoxContainer
-const inventory_item_scene := preload("res://scenes/inventory_item.tscn")
+const inventory_item_scene := preload("res://scenes/inventory/inventory_item.tscn")
 
 func _ready() -> void:
 	Inventory.item_added.connect(add_item)

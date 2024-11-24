@@ -1,11 +1,12 @@
-extends Interactable
+#extends Interactable
+extends Node2D
 class_name Examinable
 
 @export var examine_text : String
 var examine_ui : Examine_UI
 
 func _ready() -> void:
-	super._ready()
+	#super._ready()
 	assert(examine_text != null, "Examine Text is null")
 	examine_ui = get_node("/root/Game/HUD/ExamineUI")
 	assert(examine_ui != null, "Examine UI is null")
