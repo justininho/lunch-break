@@ -1,25 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1i0s4m46s57s"]
+[gd_scene load_steps=12 format=3 uid="uid://c1i0s4m46s57s"]
 
 [ext_resource type="Script" path="res://interaction/interaction_area.gd" id="2_5jyok"]
 [ext_resource type="Script" path="res://items/gold_key/gold_key.gd" id="2_fi203"]
 [ext_resource type="Texture2D" uid="uid://ohv1x3cnu3qo" path="res://assets/key.png" id="2_pe83m"]
-[ext_resource type="Script" path="res://interaction/features/pickup/pickup_state.gd" id="3_dh54j"]
+[ext_resource type="Script" path="res://interaction/nodes/pickup/pickup_state.gd" id="3_dh54j"]
 [ext_resource type="Resource" uid="uid://cmutqy74rh56l" path="res://items/gold_key/gold_key.tres" id="3_uqq6q"]
-[ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://interaction/interact_material.tres" id="5_0y1e4"]
-[ext_resource type="PackedScene" uid="uid://nfetovgcbkah" path="res://interaction/features/pickup/pickup.tscn" id="6_xhu4g"]
+[ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://interaction/interact_material.tres" id="4_bxdll"]
+[ext_resource type="Script" path="res://interaction/interaction_state.gd" id="5_ioe8t"]
+[ext_resource type="PackedScene" uid="uid://nfetovgcbkah" path="res://interaction/nodes/pickup/pickup.tscn" id="6_xhu4g"]
+
+[sub_resource type="Resource" id="Resource_5crto"]
+script = ExtResource("5_ioe8t")
+can_interact = true
+interaction_prompt = "Press E to interact"
+highlight_material = ExtResource("4_bxdll")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pl7s0"]
 radius = 10.1658
 
 [sub_resource type="Resource" id="Resource_vjnbl"]
 script = ExtResource("3_dh54j")
-taken = false
+is_taken = false
 item = ExtResource("3_uqq6q")
-can_interact = true
-interaction_prompt = "Press E to interact"
-highlight_material = ExtResource("5_0y1e4")
 
 [node name="GoldKey" type="Sprite2D"]
+visible = false
 texture_filter = 1
 texture = ExtResource("2_pe83m")
 script = ExtResource("2_fi203")
@@ -28,14 +33,16 @@ script = ExtResource("2_fi203")
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("2_5jyok")
+interaction_state = SubResource("Resource_5crto")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 texture_filter = 1
 shape = SubResource("CircleShape2D_pl7s0")
 
-[node name="Pickup" parent="." instance=ExtResource("6_xhu4g")]
+[node name="Pickup" parent="InteractionArea" instance=ExtResource("6_xhu4g")]
 pickup_state = SubResource("Resource_vjnbl")
 
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
 [connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]
+[connection signal="taken" from="InteractionArea/Pickup" to="." method="_on_pickup_taken"]

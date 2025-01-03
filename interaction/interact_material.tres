@@ -5,8 +5,8 @@
 [resource]
 shader = ExtResource("1_7x4vt")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 1.0
+shader_parameter/outline_width = 1.25
 shader_parameter/outline_intensity = 1.0
 shader_parameter/glow_blend = 1.0
-shader_parameter/pulse_speed = 2.0
+shader_parameter/pulse_speed = 2.5
 shader_parameter/pulse_intensity = 1.0

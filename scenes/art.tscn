@@ -1,25 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://6g20cm7mbgmx"]
+[gd_scene load_steps=10 format=3 uid="uid://6g20cm7mbgmx"]
 
-[ext_resource type="Script" path="res://scripts/examinable.gd" id="1_m3nsm"]
+[ext_resource type="Script" path="res://scenes/art.gd" id="2_2fdhi"]
 [ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/Modern_Office_16x16.png" id="2_q2g7j"]
+[ext_resource type="Script" path="res://interaction/interaction_area.gd" id="3_csky0"]
+[ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://interaction/interact_material.tres" id="4_bh5pt"]
+[ext_resource type="Script" path="res://interaction/interaction_state.gd" id="5_m2tr3"]
+[ext_resource type="Script" path="res://interaction/nodes/examine/examine.gd" id="6_4c03t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vi1q"]
 atlas = ExtResource("2_q2g7j")
 region = Rect2(0, 192, 32, 32)
 
+[sub_resource type="Resource" id="Resource_8bc52"]
+script = ExtResource("5_m2tr3")
+can_interact = true
+interaction_prompt = "Press E to interact"
+highlight_material = ExtResource("4_bh5pt")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsb7a"]
 size = Vector2(30, 26)
 
-[node name="Art" type="Area2D" groups=["examinable"]]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("1_m3nsm")
-examine_text = "Priceless or worthless?"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
 texture = SubResource("AtlasTexture_7vi1q")
+script = ExtResource("2_2fdhi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("3_csky0")
+interaction_state = SubResource("Resource_8bc52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 texture_filter = 1
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_hsb7a")
+
+[node name="Examine" type="Node2D" parent="InteractionArea"]
+script = ExtResource("6_4c03t")
+examine_text = "Priceless or worthless?"
+
+[connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]

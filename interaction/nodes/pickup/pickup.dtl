@@ -1,0 +1,5 @@
+{pickup_text}
+- {pickup_yes} | [take="yes"]
+	[signal arg="yes"]
+- {pickup_no} | [take="no"]
+	[signal arg="no"]
