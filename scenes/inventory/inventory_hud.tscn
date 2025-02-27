@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://p4gsm7ssjyyr"]
 
-[ext_resource type="Script" path="res://scenes/inventory/inventory_hud.gd" id="1_yk7ae"]
+[ext_resource type="Script" uid="uid://dhxsx8hvtwfjl" path="res://scenes/inventory/inventory_hud.gd" id="1_yk7ae"]
 
 [node name="InventoryHUD" type="GridContainer"]
 anchors_preset = 15

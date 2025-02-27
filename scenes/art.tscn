@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://6g20cm7mbgmx"]
 
-[ext_resource type="Script" path="res://scripts/examinable.gd" id="1_m3nsm"]
+[ext_resource type="Script" uid="uid://16kryf8bbtf1" path="res://scripts/examinable.gd" id="1_m3nsm"]
 [ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/Modern_Office_16x16.png" id="2_q2g7j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vi1q"]

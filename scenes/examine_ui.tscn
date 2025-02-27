@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcinfjbfyaccp"]
 
-[ext_resource type="Script" path="res://scenes/examine_ui.gd" id="1_dui4e"]
+[ext_resource type="Script" uid="uid://ur0861x46l76" path="res://scenes/examine_ui.gd" id="1_dui4e"]
 
 [node name="ExamineUI" type="Control"]
 layout_mode = 3
