@@ -1,13 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbhu8ka5rsdhv"]
+[gd_scene load_steps=5 format=3 uid="uid://cbhu8ka5rsdhv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_d4byn"]
 [ext_resource type="PackedScene" uid="uid://bcinfjbfyaccp" path="res://scenes/examine_ui.tscn" id="2_mwbkh"]
+[ext_resource type="PackedScene" uid="uid://p4gsm7ssjyyr" path="res://scenes/inventory/inventory_hud.tscn" id="4_nkpda"]
 [ext_resource type="PackedScene" uid="uid://covwp7i4y3v2o" path="res://scenes/prototype.tscn" id="8_bh4pt"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_d4byn")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="InventoryHUD" parent="HUD" instance=ExtResource("4_nkpda")]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -233.0
+offset_top = -74.0
+offset_right = -72.0
+offset_bottom = -48.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="ExamineUI" parent="HUD" groups=["examine_ui"] instance=ExtResource("2_mwbkh")]
 anchors_preset = 12

@@ -21,15 +21,15 @@ func _ready():
 		initial_state.enter()
 
 func _process(delta: float) -> void:
-	if current_state and is_active():
+	if current_state:
 		current_state.update(delta)
 
 func _physics_process(delta: float) -> void:
-	if current_state and is_active():
+	if current_state:
 		current_state.physics_update(delta)
 
 func _input(event: InputEvent) -> void:
-	if current_state and is_active():
+	if current_state:
 		current_state.handle_input(event)
 
 func on_transition(state: State, next_state_name: String) -> void:
@@ -50,9 +50,3 @@ func is_idle() -> bool:
 	
 func is_move() -> bool:
 	return current_state.get_name().to_lower() == 'move'
-	
-	
-# Determines wether state machine is active
-# Don't handle states when dialogic is active.	
-func is_active() -> bool:
-	return Dialogic.current_timeline == null

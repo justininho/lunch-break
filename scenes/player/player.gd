@@ -5,17 +5,12 @@ class_name Player
 @export var acceleration := 1200.0
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var inventory: Panel = $Inventory
+#@onready var interaction_area: InteractionArea = $InteractionArea
+#@onready var interaction: Area2D = $Interaction
 
 signal interact
 
-func _input(event: InputEvent) -> void:		
-	if event.is_action_pressed("toggle_inventory"):
-		if inventory.visible:
-			inventory.hide()
-		else:
-			inventory.show()
-			
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		_on_player_interact()
 

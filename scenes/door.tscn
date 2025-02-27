@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/door.gd" id="1_k6vcd"]
 [ext_resource type="Texture2D" uid="uid://empiv76yenol" path="res://assets/animated_door_5_locked.png" id="1_ujrgu"]
 [ext_resource type="Texture2D" uid="uid://cx7a8a5jve6vx" path="res://assets/animated_door_5.png" id="2_dw5gb"]
-[ext_resource type="Script" path="res://interaction/nodes/lock/lock_state.gd" id="4_xxpxj"]
-[ext_resource type="PackedScene" uid="uid://dc6rw6oau24ok" path="res://interaction/nodes/lock/lock.tscn" id="5_mbh7r"]
+[ext_resource type="Script" path="res://interaction/features/lock/lock_state.gd" id="4_xxpxj"]
+[ext_resource type="PackedScene" uid="uid://dc6rw6oau24ok" path="res://interaction/features/lock/lock.tscn" id="5_mbh7r"]
 [ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://interaction/interact_material.tres" id="5_t511a"]
 [ext_resource type="Script" path="res://interaction/interaction_state.gd" id="6_j0bdh"]
 [ext_resource type="Resource" uid="uid://cmutqy74rh56l" path="res://items/gold_key/gold_key.tres" id="7_3e0r1"]
@@ -166,10 +166,9 @@ interaction_state = SubResource("Resource_jdab0")
 position = Vector2(-0.0395098, 3.2917)
 shape = SubResource("RectangleShape2D_jpu2s")
 
-[node name="Lock" parent="InteractionArea" instance=ExtResource("5_mbh7r")]
-position = Vector2(-10.6136, -17.2574)
+[node name="Lock" parent="." instance=ExtResource("5_mbh7r")]
 lock_state = SubResource("Resource_67ssw")
 
 [connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]
-[connection signal="locked" from="InteractionArea/Lock" to="." method="_on_locked"]
-[connection signal="unlocked" from="InteractionArea/Lock" to="." method="_on_unlocked"]
+[connection signal="locked" from="Lock" to="." method="_on_locked"]
+[connection signal="unlocked" from="Lock" to="." method="_on_unlocked"]

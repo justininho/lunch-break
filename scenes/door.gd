@@ -1,3 +1,4 @@
+#extends Lockable
 extends Node2D
 class_name Door
 
@@ -9,8 +10,8 @@ class_name Door
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var lock: Lock = $Lock
 
-#func _on_interact() -> void:
-	#lock.try_unlock()
+func _on_interaction_area_interact() -> void:
+	lock.try_unlock()
 
 func _on_unlocked() -> void:
 	animated_sprite_2d.play("open")

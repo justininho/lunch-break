@@ -26,7 +26,6 @@ position = Vector2(56, 18)
 position = Vector2(187, 92)
 
 [node name="Key" parent="." instance=ExtResource("5_lfhse")]
-visible = true
 position = Vector2(82, 117)
 
 [node name="Player" parent="." instance=ExtResource("5_lk1ri")]
@@ -38,7 +37,6 @@ speed = 150.0
 zoom = Vector2(3, 3)
 
 [node name="Room2" type="TileMapLayer" parent="."]
-z_index = 10
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAMAAUAAgAHAAEAAAA=")
 tile_set = ExtResource("2_yuakl")

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dajlemxldim15"]
-
-[ext_resource type="Script" path="res://interaction/nodes/examine/examine.gd" id="1_xm4aq"]
-
-[node name="Examine" type="Node2D"]
-script = ExtResource("1_xm4aq")

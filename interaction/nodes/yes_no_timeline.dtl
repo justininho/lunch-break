@@ -1,6 +1,0 @@
-{yes_no_description}
-- {yes_text}
-	[signal arg="yes"]
-- {no_text} | [if {no_text} != "\"\""]
-	[signal arg="no"]
-[end_timeline]
