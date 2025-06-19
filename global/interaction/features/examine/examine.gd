@@ -1,6 +1,6 @@
 #extends Interactable
 extends Node2D
-class_name Examinable
+class_name Examine
 
 @export var examine_text : String
 var examine_ui : Examine_UI
@@ -15,8 +15,12 @@ func _ready() -> void:
 	#connect("area_exited", _on_area_exited)
 	
 func _on_interaction_area_interact() -> void:
-	print('test')
-
+	examine()
+	
+	
+func _on_interaction_area_exited(area: Node) -> void:
+	close_examine(area)
+	
 
 func examine() -> void:
 	print('examine')
@@ -24,7 +28,7 @@ func examine() -> void:
 		examine_ui.show_text(examine_text)
 	else:
 		examine_ui.hide_text()
-
+				
 				
 func close_examine(area: Node) -> void:
 	if area.name == "PlayerEntity":

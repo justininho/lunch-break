@@ -1,25 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://6g20cm7mbgmx"]
+[gd_scene load_steps=9 format=3 uid="uid://6g20cm7mbgmx"]
 
 [ext_resource type="Script" uid="uid://16kryf8bbtf1" path="res://scripts/examinable.gd" id="1_m3nsm"]
 [ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/Modern_Office_16x16.png" id="2_q2g7j"]
+[ext_resource type="PackedScene" uid="uid://cbjb6xi5le3ja" path="res://global/interaction/interaction_area.tscn" id="3_57oa2"]
+[ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://global/interaction/interact_material.tres" id="4_n6vwr"]
+[ext_resource type="Script" uid="uid://bkdxronr383kf" path="res://global/interaction/interaction_state.gd" id="5_cg4ul"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vi1q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6vwr"]
 atlas = ExtResource("2_q2g7j")
 region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="Resource" id="Resource_7usjc"]
+script = ExtResource("5_cg4ul")
+can_interact = true
+interaction_prompt = "Press E to interact"
+highlight_material = ExtResource("4_n6vwr")
+metadata/_custom_type_script = "uid://bkdxronr383kf"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsb7a"]
 size = Vector2(30, 26)
 
-[node name="Art" type="Area2D" groups=["examinable"]]
-collision_layer = 4
-collision_mask = 4
+[node name="Art" type="Sprite2D"]
+texture_filter = 1
+texture = SubResource("AtlasTexture_n6vwr")
 script = ExtResource("1_m3nsm")
 examine_text = "Priceless or worthless?"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_7vi1q")
+[node name="InteractionArea" parent="." instance=ExtResource("3_57oa2")]
+interaction_state = SubResource("Resource_7usjc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 texture_filter = 1
-position = Vector2(0, 1)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_hsb7a")

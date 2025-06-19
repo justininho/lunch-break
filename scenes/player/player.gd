@@ -5,27 +5,24 @@ class_name Player
 @export var acceleration := 1200.0
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-#@onready var interaction_area: InteractionArea = $InteractionArea
-#@onready var interaction: Area2D = $Interaction
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
-signal interact
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		_on_player_interact()
+signal navigation_finished
 
-func _on_player_interact() -> void:
-	#print(interaction_area.get_overlapping_areas())
-	#for entity in player_entity.get_overlapping_areas():
-		#if entity is Collectible:
-			#animation_tree["parameters/PickupOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-		#if entity is Interactable:
-			#entity.interact()
-	pass
-	
 		
 func has_direction() -> bool:
 	return get_direction() != Vector2.ZERO
+	
+	
+func has_navigation_target() -> bool:
+	navigation_agent_2d.get_navigation_map()
+	return !navigation_agent_2d.is_navigation_finished()
+	
+	
+func clear_navigation_target() -> void:
+	navigation_agent_2d.target_position = global_position
+	
 	
 func get_direction() -> Vector2:
 	var direction = Vector2.ZERO
@@ -38,3 +35,24 @@ func get_direction() -> Vector2:
 	if Input.is_action_pressed("move_up"):
 			direction.y -= 1
 	return direction
+
+
+func set_navigation_target(target: Vector2):
+	print('setting navigation target', target)
+	navigation_agent_2d.target_position = target
+	#if navigation_agent_2d.is_navigation_finished():
+		#return
+	#
+	#var current_agent_position = global_position
+	#var next_path_position = navigation_agent_2d.get_next_path_position()
+	#
+	#var new_velocity = current_agent_position.direction_to(next_path_position) * speed
+#
+	#if navigation_agent_2d.avoidance_enabled:
+		#navigation_agent_2d.set_velocity(new_velocity)
+	#else:
+		#velocity = new_velocity
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity

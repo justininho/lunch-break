@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dka0n3flregb4" path="res://nodes/state_machine.gd" id="3_7cvim"]
 [ext_resource type="Script" uid="uid://cpw4tb1ft4pcc" path="res://nodes/player_idle.gd" id="4_om02d"]
 [ext_resource type="Script" uid="uid://d4clg5ati2g4f" path="res://nodes/player_move.gd" id="5_j5uhg"]
-[ext_resource type="Script" uid="uid://bsukmdig1r3rq" path="res://interaction/interaction_area.gd" id="6_3q7ev"]
+[ext_resource type="Script" uid="uid://bsukmdig1r3rq" path="res://global/interaction/interaction_area.gd" id="6_3q7ev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv0de"]
 atlas = ExtResource("1_4jn5p")
@@ -382,7 +382,7 @@ frame = 56
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_5aoj0")
+&"": SubResource("AnimationLibrary_5aoj0")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -422,3 +422,10 @@ script = ExtResource("6_3q7ev")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_prj7g")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+debug_enabled = true
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

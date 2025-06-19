@@ -1,4 +1,3 @@
-#extends Lockable
 extends Node2D
 class_name Door
 

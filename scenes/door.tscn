@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://ko4p15xp6as8" path="res://scenes/door.gd" id="1_k6vcd"]
 [ext_resource type="Texture2D" uid="uid://empiv76yenol" path="res://assets/animated_door_5_locked.png" id="1_ujrgu"]
 [ext_resource type="Texture2D" uid="uid://cx7a8a5jve6vx" path="res://assets/animated_door_5.png" id="2_dw5gb"]
-[ext_resource type="Script" uid="uid://dyie8sw47gcyq" path="res://interaction/features/lock/lock_state.gd" id="4_xxpxj"]
-[ext_resource type="PackedScene" uid="uid://dc6rw6oau24ok" path="res://interaction/features/lock/lock.tscn" id="5_mbh7r"]
-[ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://interaction/interact_material.tres" id="5_t511a"]
-[ext_resource type="Script" uid="uid://bkdxronr383kf" path="res://interaction/interaction_state.gd" id="6_j0bdh"]
+[ext_resource type="Script" uid="uid://dyie8sw47gcyq" path="res://global/interaction/features/lock/lock_state.gd" id="4_xxpxj"]
+[ext_resource type="PackedScene" uid="uid://dc6rw6oau24ok" path="res://global/interaction/features/lock/lock.tscn" id="5_mbh7r"]
+[ext_resource type="Material" uid="uid://diiaeqc5itv6y" path="res://global/interaction/interact_material.tres" id="5_t511a"]
+[ext_resource type="Script" uid="uid://bkdxronr383kf" path="res://global/interaction/interaction_state.gd" id="6_j0bdh"]
 [ext_resource type="Resource" uid="uid://cmutqy74rh56l" path="res://items/gold_key/gold_key.tres" id="7_3e0r1"]
-[ext_resource type="Script" uid="uid://bsukmdig1r3rq" path="res://interaction/interaction_area.gd" id="8_o3l66"]
+[ext_resource type="Script" uid="uid://bsukmdig1r3rq" path="res://global/interaction/interaction_area.gd" id="8_o3l66"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_key6u"]
 atlas = ExtResource("1_ujrgu")
@@ -125,7 +125,7 @@ script = ExtResource("4_xxpxj")
 is_locked = true
 item = ExtResource("7_3e0r1")
 
-[node name="Door" type="StaticBody2D" groups=["interactable", "unlockable"]]
+[node name="Door" type="StaticBody2D"]
 position = Vector2(1.42591, -10.5491)
 collision_layer = 2
 script = ExtResource("1_k6vcd")
