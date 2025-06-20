@@ -6,15 +6,10 @@ class_name Player_Move
 
 
 func update(_delta: float) -> void:
-	print('has nav target ', player.has_navigation_target())
-	print('velocity: ', player.velocity)
-	print('speed: ', player.speed)
-	print('on wall: ', player.is_on_wall())
-	
 	if should_idle():
-		print('idle')
 		transition.emit(self, "idle")
-		#
+		
+		
 func should_idle():
 	var no_direction = !player.has_direction()
 	var no_target = !player.has_navigation_target()

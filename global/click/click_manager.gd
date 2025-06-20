@@ -30,7 +30,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Handle clicks on empty space - typically for movement
 	# This gets called automatically by Godot for inputs not handled by other nodes
 	if Input.is_action_just_pressed("left_click") or Input.is_action_pressed("left_click"):
-		print('left click:', event)
 		# Send the target position to the player's navigation agent
 		player.set_navigation_target(get_centered_tile_position())
 	pass

@@ -38,7 +38,6 @@ func get_direction() -> Vector2:
 
 
 func set_navigation_target(target: Vector2):
-	print('setting navigation target', target)
 	navigation_agent_2d.target_position = target
 	#if navigation_agent_2d.is_navigation_finished():
 		#return

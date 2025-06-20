@@ -6,5 +6,4 @@ class_name Player_Idle
 
 func update(_delta: float) -> void:
 	if player.has_direction() or player.has_navigation_target():
-		print('move')
 		transition.emit(self, "move")

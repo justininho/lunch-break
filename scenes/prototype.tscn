@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=4 uid="uid://covwp7i4y3v2o"]
 
 [ext_resource type="TileSet" uid="uid://crwhsq62dol4e" path="res://resources/env_no_collision_tileset.tres" id="2_yuakl"]
-[ext_resource type="PackedScene" uid="uid://bllvvgh7vncxc" path="res://scenes/door.tscn" id="4_dwgxy"]
+[ext_resource type="PackedScene" uid="uid://bllvvgh7vncxc" path="res://scenes/objects/door.tscn" id="4_dwgxy"]
 [ext_resource type="TileSet" uid="uid://dwsy62yjpyqb3" path="res://resources/env_tileset.tres" id="5_5d7s8"]
 [ext_resource type="PackedScene" uid="uid://c1i0s4m46s57s" path="res://items/gold_key/gold_key.tscn" id="5_lfhse"]
 [ext_resource type="PackedScene" uid="uid://be0nj0o7fvmkr" path="res://scenes/player/player.tscn" id="5_lk1ri"]
-[ext_resource type="PackedScene" uid="uid://6g20cm7mbgmx" path="res://scenes/art.tscn" id="6_medmo"]
+[ext_resource type="PackedScene" uid="uid://clau7xtuqudw0" path="res://scenes/objects/art.tscn" id="6_jmxw3"]
 
 [node name="Prototype" type="Node2D"]
 
@@ -19,11 +19,11 @@ visible = false
 texture_filter = 1
 tile_set = ExtResource("2_yuakl")
 
-[node name="Art" parent="." instance=ExtResource("6_medmo")]
-position = Vector2(56, 18)
-
 [node name="Door" parent="." instance=ExtResource("4_dwgxy")]
 position = Vector2(187, 92)
+
+[node name="Art" parent="." instance=ExtResource("6_jmxw3")]
+position = Vector2(54, 19)
 
 [node name="Key" parent="." instance=ExtResource("5_lfhse")]
 position = Vector2(82, 117)

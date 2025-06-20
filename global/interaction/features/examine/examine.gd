@@ -1,35 +1,27 @@
-#extends Interactable
 extends Node2D
 class_name Examine
 
-@export var examine_text : String
-var examine_ui : Examine_UI
+@export var examine_text: String
+@export var examine_state: ExamineState
+@onready var interaction_area: InteractionArea = get_parent().get_node("InteractionArea")
+@onready var examine_ui: Examine_UI = get_node("/root/Game/HUD/ExamineUI")
+
 
 func _ready() -> void:
-	#super._ready()
-	assert(examine_text != null, "Examine Text is null")
-	examine_ui = get_node("/root/Game/HUD/ExamineUI")
+	assert(examine_state != null, "Examine State is null")
 	assert(examine_ui != null, "Examine UI is null")
-	#connect("interaction_triggered", examine)
-	#connect("interaction_area_exited", close_examine)
-	#connect("area_exited", _on_area_exited)
-	
-func _on_interaction_area_interact() -> void:
-	examine()
-	
-	
-func _on_interaction_area_exited(area: Node) -> void:
-	close_examine(area)
-	
-
-func examine() -> void:
-	print('examine')
+	assert(interaction_area != null, "Interaction Area is null")
+	interaction_area.exit.connect(hide_text)
+	if !examine_state.manual_interaction:
+		interaction_area.interact.connect(show_text)
+		
+		
+func show_text() -> void:
 	if examine_ui.visible != true:
 		examine_ui.show_text(examine_text)
 	else:
 		examine_ui.hide_text()
 				
 				
-func close_examine(area: Node) -> void:
-	if area.name == "PlayerEntity":
-		examine_ui.hide_text()
+func hide_text() -> void:
+	examine_ui.hide_text()

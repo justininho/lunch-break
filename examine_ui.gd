@@ -11,6 +11,5 @@ func _ready() -> void:
 	#visible = false
 	
 func show_text(examine_text: String) -> void:
-	print('test')
 	examine_label.text = examine_text
 	visible = true

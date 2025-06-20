@@ -17,6 +17,7 @@ func register_area(area: InteractionArea):
 func unregister_area(area: InteractionArea):
 	var i := active_areas.find(area)
 	if i != -1:
+		active_areas[i].exit.emit()
 		active_areas.remove_at(i)
 		
 		

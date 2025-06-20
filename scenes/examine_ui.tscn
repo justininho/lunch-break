@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcinfjbfyaccp"]
+[gd_scene load_steps=3 format=3 uid="uid://bcinfjbfyaccp"]
 
 [ext_resource type="Script" uid="uid://ur0861x46l76" path="res://scenes/examine_ui.gd" id="1_dui4e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goisw"]
+bg_color = Color(0.347817, 0.347817, 0.347817, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.215902, 0.215902, 0.215902, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="ExamineUI" type="Control"]
 layout_mode = 3
@@ -23,12 +36,21 @@ offset_right = 50.0
 offset_bottom = 43.0
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_goisw")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 15
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
