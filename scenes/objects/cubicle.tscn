@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://85g7f6ttph41"]
+
+[ext_resource type="Texture2D" uid="uid://bg8jlbf0cp4e4" path="res://assets/Modern_Office_16x16.png" id="1_8gwq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx6b6"]
+atlas = ExtResource("1_8gwq4")
+region = Rect2(0, 416, 112, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwq4"]
+size = Vector2(97, 39)
+
+[node name="Cubicle" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_cx6b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 2.5)
+shape = SubResource("RectangleShape2D_8gwq4")

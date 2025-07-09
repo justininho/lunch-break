@@ -8,9 +8,9 @@ class_name Examine
 
 
 func _ready() -> void:
-	assert(examine_state != null, "Examine State is null")
-	assert(examine_ui != null, "Examine UI is null")
-	assert(interaction_area != null, "Interaction Area is null")
+	#assert(examine_state != null, "Examine State is null")
+	#assert(examine_ui != null, "Examine UI is null")
+	#assert(interaction_area != null, "Interaction Area is null")
 	interaction_area.exit.connect(hide_text)
 	if !examine_state.manual_interaction:
 		interaction_area.interact.connect(show_text)
